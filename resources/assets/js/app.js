@@ -51,7 +51,16 @@ new Vue({
 		},
 
 		updateKeep: function(id){
-			alert('Edit')
+			url = 'tasks/'+ id;
+			axios.put(url, this.fillKeep).then( response=>{
+				this.getKeeps();
+				this.fillKeep = {id:'',keep:''};
+				this.error = [];
+				$('#edit').modal('hide');
+				toastr.success('Atualizado com sucesso!');
+			}).catch( error => {
+				this.errors = error.response.data
+ 			});
 		} 
     },
 });
