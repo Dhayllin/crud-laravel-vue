@@ -12,11 +12,16 @@ const mix = require('laravel-mix');
  */
 
 mix.scripts([
+   'resources/assets/js/jquery.js',
+   'resources/assets/js/bootstrap.js',
+   'resources/assets/js/toastr.js',
    'resources/assets/js/vue.js',
    'resources/assets/js/axios.js', 
    'resources/assets/js/app.js',
-   'resources/assets/js/app.js',  
 ], 'public/js/app.js');
 
-mix.styles(['node_modules/bootstrap/dist/css/bootstrap.css'],'public/css/styles.css').sourceMaps();
+mix.styles([
+'resources/assets/css/bootstrap.css',
+'resources/assets/css/toastr.css',
+], 'public/css/styles.css').sourceMaps();
   
