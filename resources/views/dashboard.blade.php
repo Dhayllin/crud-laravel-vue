@@ -6,7 +6,7 @@
         </div>
         <hr><br>
         <div class="col-sm-7">
-            <a href="#" class="btn btn-primary pull-right"> Novo Tarefa</a>
+            <a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#create" > Novo Tarefa</a>
         </div>
  
         <table class="table table-hover table-striped">
@@ -28,6 +28,7 @@
                 </tr>
             </tbody>
         </table>
+        @include('create')
         <div class="col-sm-5">
              <pre>
                @{{ keeps }}
