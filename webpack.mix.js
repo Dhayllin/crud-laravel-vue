@@ -15,8 +15,8 @@ mix.scripts([
    'resources/assets/js/vue.js',
    'resources/assets/js/axios.js', 
    'resources/assets/js/app.js',
+   'resources/assets/js/app.js',  
 ], 'public/js/app.js');
 
-mix.styles(['node_modules/bootstrap/dist/css/bootstrap.css'], 'public/css/styles.css')
-.sourceMaps();
+mix.styles(['node_modules/bootstrap/dist/css/bootstrap.css'],'public/css/styles.css').sourceMaps();
   
