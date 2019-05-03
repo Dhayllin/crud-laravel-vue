@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-        <div id="main" class="container">
+        <div class="container">
             @yield('content')
         </div>
     <script src="/js/app.js"></script> 

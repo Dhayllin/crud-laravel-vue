@@ -17,5 +17,6 @@ mix.scripts([
    'resources/assets/js/app.js',
 ], 'public/js/app.js');
 
-mix.styles(['node_modules/bootstrap/dist/css/bootstrap.css'], 'public/css/styles.css');
+mix.styles(['node_modules/bootstrap/dist/css/bootstrap.css'], 'public/css/styles.css')
+.sourceMaps();
   

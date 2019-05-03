@@ -13527,22 +13527,33 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
-sourceMappingURL=axios.map
-//var urlUsers = 'https://randomuser.me/api/?results=10';
-var urlUsers = 'https://jsonplaceholder.typicode.com/users';
+
 new Vue({
-    el: '#main',
+    el: '#crud',
+
     created: function() {
-        this.getUsers();
+		this.getKeeps();
     },
-    data: {
-        lists: []
+
+    data:{
+        keeps: [],
     },
+
     methods: {
-        getUsers: function() {
-                axios.get(urlUsers).then(response=>{
-                this.lists = response.data;
+
+        getKeeps: function(){
+            urlKeeps = 'tasks';
+            axios.get(urlKeeps).then(response =>{
+                this.keeps = response.data
+            })
+        },
+
+        deleteKeeps: function(keep){
+            url = 'tasks/'+ keep.id;
+            axios.delete(url).then( response => {
+                this.getKeeps();
             });
+
         }
-    }
+    },
 });
