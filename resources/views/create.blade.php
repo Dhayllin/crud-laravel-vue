@@ -1,3 +1,4 @@
+<form method="POST" v-on:submit.prevent="createKeep">
 <div class="modal fade" id="create">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -5,10 +6,14 @@
                 <button type="button" class="close" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
-                <h4> Nova Tarefa</h4>
+                <h4> Nova </h4>
             </div>
             <div class="modal-body">
-                ....
+                <label for="keep"> Nova Tarefa </label>
+                <input type="text" name="keep" class="form-control" v-model="newKeep">
+                <span v-for=" error in errors" class="text-danger">
+                    @{{ error }}
+                </span>
             </div>
             <div class="modal-footer">
                 <input type="submit" class="btn btn-success" value="Salvar">
@@ -16,3 +21,4 @@
         </div>
     </div>
 </div>
+</form>

@@ -7,7 +7,10 @@ new Vue({
     },
 
     data:{
-        keeps: [],
+		keeps: [],
+		fillKeep: {id:'',keep:''},
+		newKeep:'',
+		errors: ''
     },
 
     methods: {
@@ -22,10 +25,33 @@ new Vue({
         deleteKeeps: function(keep){
             url = 'tasks/'+ keep.id;
             axios.delete(url).then( response => {
-				this.getKeeps();
+			   this.getKeeps();
 			   toastr.success("Eliminado com sucesso  "+keep.id);
-            });
+			});		
+		},
+		createKeep: function(){
+			url = 'tasks/';
+			axios.post(url,{
+				keep: this.newKeep
+			}).then( response =>{
+				this.getKeeps();
+				this.newKeep = '';
+				this.error = [];
+				$('#create').modal('hide');
+				toastr.success(' Tarefa criada com sucesso!');
+			}).catch( error => {
+				this.errors = error.response.data
+			});
+		},
 
-        }
+		editKeep: function(keep){
+			this.fillKeep.id  = keep.id;
+			this.fillKeep.keep = keep.keep;
+			$('#edit').modal('show');
+		},
+
+		updateKeep: function(id){
+			alert('Edit')
+		} 
     },
 });
