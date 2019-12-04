@@ -24382,22 +24382,30 @@ new Vue({
     el: '#crud',
 
     created: function() {
-		this.getKeeps();
+			this.getKeeps();
     },
 
     data:{
 		keeps: [],
 		fillKeep: {id:'',keep:''},
 		newKeep:'',
-		errors: ''
+		errors: '',
+		sortproperty:'',
+		sortDirection:'',
     },
-
+		computed: {
+			orderedUsers: function () {
+				return _.orderBy(this.keeps, 'keep')
+			}
+		},
     methods: {
 
         getKeeps: function(){
             urlKeeps = 'tasks';
             axios.get(urlKeeps).then(response =>{
-                this.keeps = response.data
+								this.keeps = response.data
+								this.sortproperty =  'keep',
+								this.sortDirection = 1
             })
         },
 

@@ -14,14 +14,14 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Tarefa</th>
+                <th> Tarefa</th>
                 <th colspan="2">
                     &nbsp;
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for=" keep in keeps">
+            <tr v-for=" keep in keeps | orderBy sortproperty ">
             <td width="10px">@{{ keep.id}}</td>
             <td>@{{ keep.keep}}</td>
                 <td width="10px"> <a href="#" class="btn btn-warning btn-sm"  v-on:click.prevent="editKeep(keep)">Editar</a></td>
